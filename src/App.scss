@@ -1,0 +1,124 @@
+.App {
+    width: 50%;
+    margin: auto;
+
+    & > .Search_form {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.Search_form {
+    margin-top: 6rem;
+    width: 100%;
+    display: flex;
+
+
+    & > input {
+        width: 90%;
+        padding: 1rem;
+        outline: none;
+        border: 1px solid var(--color-scale-gray-0);
+        font-family: inherit;
+        font-size: 1.2rem;
+        border-radius: .7rem;
+    }
+
+    & > button {
+        width: 10%;
+        outline: none;
+        border: 1px solid #ccc;
+        color: #fff;
+        font-weight: 800;
+        border-radius: .7rem;
+        margin-left: .7rem;
+        cursor: pointer;
+        background-color: var(--color-scale-blue-8);
+    }
+}
+
+
+.Profile {
+    display: flex;
+    align-items: center;
+
+    margin-top: 1rem;
+    border: 1px solid var(--color-scale-gray-5);
+    border-radius: .7rem;
+    padding: 1rem;
+    & > img {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+    }
+
+    &_info {
+        margin-left: 2rem;
+
+        &-name {
+            font-size: 3.1rem;
+            color: var(--color-scale-gray-0);
+        }
+    }
+}
+
+.Repositories {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 1rem;
+    
+
+    &_item{
+
+      background-color: var(--color-scale-gray-7);
+      border-radius: .7rem ;
+
+      padding: 1rem;
+
+      & > h3 {
+          font-size: 2.3rem;
+          color: var(--color-scale-gray-1);
+      }
+
+      & > h5 {
+          font-size: 1.4rem;
+          color: var(--color-scale-gray-3);
+      }
+
+      & > .tag {
+          display: flex;
+
+          & > span {
+              margin-top: .4rem;
+              background-color: var(--color-scale-blue-7);
+              padding: .5rem 1rem;
+              border-radius: .7rem;
+              font-size: .8rem;
+              color: var(--color-scale-gray-1);
+              &:not(:last-child){
+                  margin-right: .8rem;
+              }
+          }
+      } 
+
+      & > .info {
+        display: flex;
+        margin-top: 2rem;
+
+        & > .language, & > .updated_at {
+            font-size: 1.1rem;
+            color: var(--color-scale-gray-1);
+        }
+        & > .language {
+            margin-right: 1.4rem;
+        }
+      }
+
+      &:not(:last-child) {
+          margin-bottom: 1rem;
+      }
+
+    }
+
+}
