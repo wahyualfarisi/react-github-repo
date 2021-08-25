@@ -1,5 +1,7 @@
 const initialState = {
-
+    searchText: '',
+    profile: null,
+    repositories: null
 }
 
 const github = ( state = initialState, action) => {

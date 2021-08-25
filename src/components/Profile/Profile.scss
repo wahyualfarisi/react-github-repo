@@ -1,0 +1,23 @@
+.Profile {
+    display: flex;
+    align-items: center;
+
+    margin-top: 1rem;
+    border: 1px solid var(--color-scale-gray-5);
+    border-radius: .7rem;
+    padding: 1rem;
+    & > img {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+    }
+
+    &_info {
+        margin-left: 2rem;
+
+        &-name {
+            font-size: 3.1rem;
+            color: var(--color-scale-gray-0);
+        }
+    }
+}
