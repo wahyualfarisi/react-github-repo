@@ -34,7 +34,8 @@ const github = ( state = initialState, action) => {
                 },
                 repositories: {
                     ...state.repositories,
-                    data: []
+                    data: [],
+                    error: null
                 }
             }
 

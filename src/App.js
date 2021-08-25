@@ -7,12 +7,13 @@ import {
   searchGithubUser
 } from './store/actions';
 import { Spinner } from './components/UI/Spinner/Spinner';
+import Search from './components/Search/Search';
 
 function App({
   onSearchGithubUser,
   isLoadingSearch,
   profile,
-  error,
+  errorSearch,
 
   repo,
   isLoadingRepo,
@@ -31,29 +32,20 @@ function App({
   return (
     <div className="App">
 
-        <form className="Search_form" onSubmit={submitHandler}>
-          <input 
-            type="text" 
-            placeholder="Search github user"
-            value={searchText}
-            onChange={e => setSearchText(e.target.value)}
-          />
-          <button 
-            disabled={searchText.length === 0 || isLoadingSearch}
-            type="submit">
-            Search
-          </button>
-        </form>
+        <Search 
+          isLoadingSearch={isLoadingSearch} 
+          setSearchText={setSearchText} 
+          searchText={searchText} 
+          submitHandler={submitHandler}
+        />
 
         {isLoadingSearch && <div className="App_load-user"><Spinner /></div>}
         
-        {!isLoadingSearch && profile && <Profile data={profile} />}
+        {!isLoadingSearch && profile && <Profile data={profile}  /> }
 
         {isLoadingRepo &&  <div className="App_load-user"><Spinner /></div> }
 
-        {!isLoadingRepo?.repo?.repo.length > 0 ? (
-            <Repositories data={repo} />
-        ) : null }
+        {!isLoadingRepo?.repo?.repo.length > 0 && <Repositories data={repo} /> }
     </div>
   );
 }

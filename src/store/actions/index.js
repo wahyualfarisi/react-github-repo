@@ -13,6 +13,7 @@ export const searchGithubUser = ( value ) => {
         dispatch({ type: SEARCH_GITHUBUSER_START })
         Axios.get(`/users/${value}`)
             .then(res => {
+                console.log(res);
                 dispatch({
                     type: SEARCH_GITHUBUSER_SUCCESS,
                     payload: res.data
@@ -20,6 +21,7 @@ export const searchGithubUser = ( value ) => {
                 dispatch( loadRepositories( res.data.login ) )
             })
             .catch(err => {
+                console.log(err.message)
                 dispatch({
                     type: SEARCH_GITHUBUSER_FAILED,
                     error: err.message

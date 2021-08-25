@@ -5,9 +5,8 @@ import './Repositories.scss'
 function Repositories({
   data 
 }) {
-    return (
-        <ul className="Repositories">
-
+  return (
+    <ul className="Repositories">
         {data.map(item => {
           return (
             <li className="Repositories_item" key={item.id}>
@@ -22,11 +21,8 @@ function Repositories({
             </li>
           )
         })}
-
-         
-
-        </ul>
-    )
+    </ul>
+  )
 }
 
 export default Repositories
