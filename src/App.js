@@ -1,32 +1,79 @@
+import { useState } from 'react';
 import './App.scss';
 import Profile from './components/Profile/Profile';
 import Repositories from './components/Repositories/Repositories';
+import { connect } from 'react-redux';
+import {
+  searchGithubUser
+} from './store/actions';
+import { Spinner } from './components/UI/Spinner/Spinner';
+
+function App({
+  onSearchGithubUser,
+  isLoadingSearch,
+  profile,
+  error,
+
+  repo,
+  isLoadingRepo,
+  errorRepo
+}) {
+
+  const [searchText, setSearchText] = useState('');
+
+  const submitHandler = (e) => {
+      e.preventDefault();
+      onSearchGithubUser(searchText);
+  }
 
 
-function App() {
+
   return (
     <div className="App">
 
-        <form className="Search_form">
-          <input type="text" placeholder="Search github user" />
-          <button type="submit">Search</button>
+        <form className="Search_form" onSubmit={submitHandler}>
+          <input 
+            type="text" 
+            placeholder="Search github user"
+            value={searchText}
+            onChange={e => setSearchText(e.target.value)}
+          />
+          <button 
+            disabled={searchText.length === 0 || isLoadingSearch}
+            type="submit">
+            Search
+          </button>
         </form>
 
-        <Profile />
+        {isLoadingSearch && <div className="App_load-user"><Spinner /></div>}
+        
+        {!isLoadingSearch && profile && <Profile data={profile} />}
 
-        <div className="Filter">
-          <select>
-            <option value="0">Sort</option>
-            <option value="0">Pushed</option>
-            <option value="1">Updated</option>
-            <option value="2">Created</option>
-          </select>
-        </div>
+        {isLoadingRepo &&  <div className="App_load-user"><Spinner /></div> }
 
-        <Repositories />
-
+        {!isLoadingRepo?.repo?.repo.length > 0 ? (
+            <Repositories data={repo} />
+        ) : null }
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+      profile: state.github.profile.data,
+      isLoadingSearch: state.github.profile.isLoadingSearch,
+      errorSearch: state.github.profile.error,
+
+      repo: state.github.repositories.data,
+      isLoadingRepo: state.github.repositories.isLoading,
+      errorRepo: state.github.repositories.error
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchGithubUser: (value) => dispatch( searchGithubUser(value) )
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

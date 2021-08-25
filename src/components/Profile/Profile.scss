@@ -19,5 +19,19 @@
             font-size: 3.1rem;
             color: var(--color-scale-gray-0);
         }
+
+        &-bio {
+            font-size: 1rem;
+            color: var(--color-scale-gray-1);
+        }
     }
+
+    &_subs {
+        & > span {
+            font-size: 1.1rem;
+            color: var(--color-scale-gray-1);
+        }
+    }
+
+    
 }

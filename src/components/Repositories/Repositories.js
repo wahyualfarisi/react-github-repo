@@ -1,35 +1,30 @@
 import React from 'react'
+import moment from 'moment';
 import './Repositories.scss'
 
-function Repositories() {
+function Repositories({
+  data 
+}) {
     return (
         <ul className="Repositories">
 
-          <li className="Repositories_item">
-              <h3>Laravel Framework</h3>
-              <h5>Api Project list Description</h5>
-              <div className="tag">
-                <span>Laravel Framework</span>
-                <span>PHP</span>
-              </div>
-              <div className="info">
-                <div className="language">HTML</div>
-                <div className="updated_at">Updated 13 days ago</div>
-              </div>
-          </li>
+        {data.map(item => {
+          return (
+            <li className="Repositories_item" key={item.id}>
+                <h3>{item.full_name}</h3>
+                <h5>{item.description && item.description}</h5>
+                <div className="tag">
+                  {item.language && <span>{item.language}</span> } 
+                </div>
+                <div className="info">
+                  {item.updated_at && <div className="updated_at">Updated At {moment(item.updated_at).fromNow()}</div> }
+                </div>
+            </li>
+          )
+        })}
 
-          <li className="Repositories_item">
-              <h3>React JS Movie</h3>
-              <h5>Api Project list Description</h5>
-              <div className="tag">
-                <span>JS</span>
-                <span>REACT</span>
-              </div>
-              <div className="info">
-                <div className="language">HTML</div>
-                <div className="updated_at">Updated 13 days ago</div>
-              </div>
-          </li>
+         
+
         </ul>
     )
 }

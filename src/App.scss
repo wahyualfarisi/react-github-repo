@@ -6,6 +6,13 @@
         display: flex;
         justify-content: center;
     }
+
+    &_load-user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
 }
 
 .Search_form {
@@ -34,6 +41,14 @@
         margin-left: .7rem;
         cursor: pointer;
         background-color: var(--color-scale-blue-8);
+        transition: ease .4s;
+
+        &:disabled {
+            background-color: var(--color-scale-gray-3);
+            opacity: .2;
+            color: #ddd;
+            cursor: not-allowed;
+        }
     }
 }
 
