@@ -17,7 +17,17 @@ function App() {
           </div>
         </section>
 
+        <div className="Filter">
+          <select>
+            <option value="0">Sort</option>
+            <option value="0">Pushed</option>
+            <option value="1">Updated</option>
+            <option value="2">Created</option>
+          </select>
+        </div>
+
         <ul className="Repositories">
+
           <li className="Repositories_item">
               <h3>Laravel Framework</h3>
               <h5>Api Project list Description</h5>
@@ -43,7 +53,6 @@ function App() {
                 <div className="updated_at">Updated 13 days ago</div>
               </div>
           </li>
-
         </ul>
 
     </div>
