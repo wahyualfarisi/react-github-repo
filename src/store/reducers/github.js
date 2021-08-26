@@ -17,7 +17,8 @@ const initialState = {
     repositories: {
         isLoading: false,
         error: null,
-        data: []
+        data: [],
+        page: null
     }
 }
 
@@ -35,7 +36,8 @@ const github = ( state = initialState, action) => {
                 repositories: {
                     ...state.repositories,
                     data: [],
-                    error: null
+                    error: null,
+                    page: null
                 }
             }
 
@@ -67,7 +69,8 @@ const github = ( state = initialState, action) => {
                 ...state,
                 repositories: {
                     ...state.repositories,
-                    isLoading: true
+                    isLoading: true,
+                    page: null
                 }
             }
 
@@ -77,7 +80,8 @@ const github = ( state = initialState, action) => {
                 repositories: {
                     ...state.repositories,
                     isLoading: false,
-                    data: action.payload
+                    data: action.payload,
+                    page: action.page
                 }
             }
 
@@ -88,7 +92,8 @@ const github = ( state = initialState, action) => {
                     ...state.repositories,
                     isLoading: false,
                     data: [],
-                    error: action.error
+                    error: action.error,
+                    page: null
                 }
             }
 

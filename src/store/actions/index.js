@@ -1,4 +1,5 @@
 import Axios from './../../axios-instance';
+import parseLinkHeader from 'parse-link-header';
 import { 
     LOAD_REPOSITORI_FAILED,
     LOAD_REPOSITORI_START,
@@ -13,12 +14,11 @@ export const searchGithubUser = ( value ) => {
         dispatch({ type: SEARCH_GITHUBUSER_START })
         Axios.get(`/users/${value}`)
             .then(res => {
-                console.log(res);
                 dispatch({
                     type: SEARCH_GITHUBUSER_SUCCESS,
                     payload: res.data
                 })
-                dispatch( loadRepositories( res.data.login ) )
+                dispatch( loadRepositories() )
             })
             .catch(err => {
                 console.log(err.message)
@@ -30,15 +30,16 @@ export const searchGithubUser = ( value ) => {
     }
 }
 
-export const loadRepositories = ( uname , query = null ) => {
-    return dispatch => {
+export const loadRepositories = (query = null ) => {
+    return (dispatch, getState) => {
+        const { profile } = getState().github;
         dispatch({ type: LOAD_REPOSITORI_START });
-        Axios.get(`/users/${uname}/repos?sort=pushed`)
+        Axios.get(`/users/${profile.data.login}/repos?sort=pushed&${query}`)
         .then(res => {
-            console.log(res);
             dispatch({
                 type: LOAD_REPOSITORI_SUCCESS,
-                payload: res.data
+                payload: res.data,
+                page: parseLinkHeader(res.headers.link)
             })
         })
         .catch(err => {

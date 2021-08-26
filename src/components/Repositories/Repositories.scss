@@ -62,3 +62,19 @@
     }
 
 }
+
+.Page {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    & > button {
+        padding: .7rem 1rem;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid #ccc;
+        background-color: var(--color-scale-blue-7);
+        color: #fff;
+    }
+}
