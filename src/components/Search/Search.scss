@@ -1,6 +1,6 @@
 
 .Search_form {
-    margin-top: 6rem;
+    margin-top: 1rem;
     width: 100%;
     display: flex;
 
@@ -26,6 +26,11 @@
           
         &::placeholder {
             color: var(--color-scale-gray-3);
+        }
+
+        @media only screen and (max-width: 411px) {
+            padding: .5rem;
+            font-size: 1rem;
         }
     }
 

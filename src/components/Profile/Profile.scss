@@ -10,6 +10,11 @@
         width: 15rem;
         height: 15rem;
         border-radius: 50%;
+
+        @media only screen and (max-width: 411px) {
+            width: 5rem;
+            height: 5rem;
+        }
     }
 
     &_info {
@@ -18,6 +23,10 @@
         &-name {
             font-size: 3.1rem;
             color: var(--color-scale-gray-0);
+
+            @media only screen and (max-width: 411px) {
+                font-size: 1.1rem;
+            }
         }
 
         &-bio {

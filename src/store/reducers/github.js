@@ -70,7 +70,8 @@ const github = ( state = initialState, action) => {
                 repositories: {
                     ...state.repositories,
                     isLoading: true,
-                    page: null
+                    page: null,
+                    data: []
                 }
             }
 

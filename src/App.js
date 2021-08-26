@@ -31,13 +31,13 @@ function App({
       onSearchGithubUser(searchText);
   }
 
-  const changePageHandler = (page) => {
-    onLoadRepo(`&page=${page}`)
-  }
+  const changePageHandler = (page) => onLoadRepo(`&page=${page}`)
 
   return (
     <div className="App">
-
+        <header>
+            <h1>Github <span>List Repository</span></h1>
+        </header>
         <Search 
           isLoadingSearch={isLoadingSearch} 
           setSearchText={setSearchText} 

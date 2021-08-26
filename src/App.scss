@@ -2,6 +2,27 @@
     width: 40%;
     margin: auto;
 
+    & > header {
+        margin-top: 4rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > h1 {
+            font-size: 3.2rem;
+            color: var(--color-scale-gray-1);
+
+            & > span {
+                font-size: 2rem;
+                color: var(--color-scale-gray-3);
+            }
+
+            @media only screen and (max-width: 58.75em) {
+                font-size: 2rem;
+            }
+        }
+    }
+
     & > .Search_form {
         display: flex;
         justify-content: center;
@@ -13,17 +34,18 @@
         align-items: center;
         height: 200px;
     }
-}
 
 
-.Filter {
-    margin-top: 1rem;
-    & > select {
-        padding: .5rem 1rem;
-        outline: none;
-        border: none;
-        background-color: var(--color-scale-gray-3);
-        font-size: 1.1rem;
-        border-radius: .7rem;
+    @media only screen and (max-width: 1200px) {
+        width: 70%;
     }
+
+    @media only screen and (max-width: 680px) {
+        width: 90%;
+    }
+
+    @media only screen and (max-width: 411px) {
+        width: 90%;
+    }
+    
 }

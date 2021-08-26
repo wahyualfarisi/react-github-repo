@@ -17,11 +17,19 @@
       & > h3 {
           font-size: 1.9rem;
           color: var(--color-scale-gray-1);
+
+          @media only screen and (max-width: 411px) {
+            font-size: 1rem;
+          }
       }
 
       & > h5 {
           font-size: 1.2rem;
           color: var(--color-scale-gray-3);
+
+          @media only screen and (max-width: 411px) {
+            font-size: .8rem;
+          }
       }
 
       & > .tag {
@@ -47,12 +55,14 @@
         & > .language, & > .updated_at, & > .created_at {
             font-size: 1.1rem;
             color: var(--color-scale-gray-1);
+
+            @media only screen and (max-width: 411px) {
+                font-size: .5rem;
+            }
         }
         & > .language {
             margin-right: 1.4rem;
         }
-
-        
       }
 
       &:not(:last-child) {
