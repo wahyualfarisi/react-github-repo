@@ -37,10 +37,10 @@ function Repositories({
         })
         */
       }
-      {page && page.prev && <button onClick={() => onChangePage(page.prev.page)}>Previous</button> }
-      {page && page.first && <button onClick={() => onChangePage(page.first.page)}>First</button> }
-      {page && page.next && <button onClick={() => onChangePage(page.next.page)}>Next</button> }
-      {page && page.last && <button onClick={() => onChangePage(page.last.page)}>Last</button> }
+      {page && page.first && <button onClick={() => onChangePage(page.first.page)}>First Page</button> }
+      {page && page.prev && <button onClick={() => onChangePage(page.prev.page)}>Previous Page</button> }
+      {page && page.next && <button onClick={() => onChangePage(page.next.page)}>Next Page</button> }
+      {page && page.last && <button onClick={() => onChangePage(page.last.page)}>Last Page</button> }
       </div>
       
     </>
