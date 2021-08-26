@@ -18,17 +18,17 @@
           font-size: 1.9rem;
           color: var(--color-scale-gray-1);
 
-          @media only screen and (max-width: 411px) {
-            font-size: 1rem;
-          }
+          @media only screen and (max-width: 550px) {
+            font-size: .8rem;
+        }
       }
 
       & > h5 {
           font-size: 1.2rem;
           color: var(--color-scale-gray-3);
 
-          @media only screen and (max-width: 411px) {
-            font-size: .8rem;
+          @media only screen and (max-width: 550px) {
+            font-size: .6rem;
           }
       }
 
@@ -56,7 +56,7 @@
             font-size: 1.1rem;
             color: var(--color-scale-gray-1);
 
-            @media only screen and (max-width: 411px) {
+            @media only screen and (max-width: 550px) {
                 font-size: .5rem;
             }
         }

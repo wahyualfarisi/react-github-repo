@@ -11,10 +11,17 @@
         height: 15rem;
         border-radius: 50%;
 
+        @media only screen and (max-width: 550px) {
+            width: 6rem;
+            height: 6rem;
+        }
+
         @media only screen and (max-width: 411px) {
             width: 5rem;
             height: 5rem;
         }
+
+        
     }
 
     &_info {
@@ -23,6 +30,10 @@
         &-name {
             font-size: 3.1rem;
             color: var(--color-scale-gray-0);
+
+            @media only screen and (max-width: 550px) {
+                font-size: 1.5rem;
+            }
 
             @media only screen and (max-width: 411px) {
                 font-size: 1.1rem;
