@@ -6,8 +6,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducers from './store/reducers';
 import thunk from 'redux-thunk';
-import reportWebVitals from './reportWebVitals';
-
 
 //composerEnhancers
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
@@ -17,6 +15,13 @@ if(composeEnhancers) {
     applyMiddleware( thunk )
     ) 
   );
+}
+
+if (process.env.NODE_ENV === "development"){
+  const { worker } = require('./mocks/browser');
+  worker.start({
+    onUnhandledRequest: "bypass"
+  });
 }
 
 ReactDOM.render(
@@ -31,4 +36,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
